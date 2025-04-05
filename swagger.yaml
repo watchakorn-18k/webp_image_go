@@ -15,6 +15,7 @@ paths:
         - multipart/form-data
       produces:
         - multipart/form-data
+      summary: Upload and Convert image to WebP
       requestBody:
         content:
           multipart/form-data:
