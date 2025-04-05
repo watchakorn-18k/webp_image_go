@@ -1,5 +1,11 @@
 ## Image to WebP Converter (Golang)
 
+<div algin="center">
+
+![Logo](example.gif)
+
+<div>
+
 A lightweight, efficient backend service built in Golang to convert images to WebP format. This project includes a Dockerfile for easy deployment and scalability.
 
 ## Build Docker
