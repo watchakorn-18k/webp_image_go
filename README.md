@@ -14,15 +14,20 @@ docker build -t image_api -f Dockerfile .
 
 ## API Endpoint
 
-URL: `/convert-to-webp`
-Method: `POST`
-Content-Type: `multipart/form-data`
-Description: Uploads an image file and returns the converted WebP file.
-Body : image (file)
+- URL: `/convert-to-webp`
+- Method: `POST`
+- Content-Type: `multipart/form-data`
+- Description: Uploads an image file and returns the converted WebP file.
+- Body : image (file)
 
 CURL:
 
 ```bash
 curl --location 'http://127.0.0.1:3000/convert-to-webp' \
+--form 'image=@"/path/to/file"'
+```
+
+```bash
+curl --location 'https://webp-image-go.onrender.com/convert-to-webp' \
 --form 'image=@"/path/to/file"'
 ```
