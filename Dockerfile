@@ -17,6 +17,7 @@ RUN mkdir -p /root/.bin/webp && \
     ln -s /usr/bin/cwebp /root/.bin/webp/cwebp
 
 COPY --from=builder /app/myapp .
+COPY --from=builder /app/swagger.yaml .
 
 EXPOSE 3000
 

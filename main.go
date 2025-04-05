@@ -6,10 +6,27 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/nickalie/go-webpbin"
+	"github.com/watchakorn-18k/scalar-go"
 )
 
 func main() {
 	app := fiber.New()
+
+	app.Use("/", func(c *fiber.Ctx) error {
+		htmlContent, err := scalar.ApiReferenceHTML(&scalar.Options{
+			SpecURL: "./swagger.yaml",
+			CustomOptions: scalar.CustomOptions{
+				PageTitle: "Image to WebP API",
+			},
+			DarkMode: true,
+		})
+
+		if err != nil {
+			return err
+		}
+		c.Type("html")
+		return c.SendString(htmlContent)
+	})
 
 	app.Post("/convert-to-webp", func(c *fiber.Ctx) error {
 		file, err := c.FormFile("image")
