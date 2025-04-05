@@ -12,7 +12,7 @@ import (
 func main() {
 	app := fiber.New()
 
-	app.Use("/", func(c *fiber.Ctx) error {
+	app.Use("/docs", func(c *fiber.Ctx) error {
 		htmlContent, err := scalar.ApiReferenceHTML(&scalar.Options{
 			SpecURL: "./swagger.yaml",
 			CustomOptions: scalar.CustomOptions{
